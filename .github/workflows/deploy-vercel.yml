@@ -1,14 +1,16 @@
 name: Vercel Deploy
 on:
   push:
-    - master # Branch referenciada.
-
+    branches:
+      - master # Branch referenciada.
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Code Checkout
         uses: actions/checkout@v4
+        
       - name: Install Vercel CLI
         run: npm install --global vercel
 
