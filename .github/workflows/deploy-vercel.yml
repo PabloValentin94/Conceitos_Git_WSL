@@ -1,0 +1,17 @@
+name: Vercel Deploy
+on:
+  push:
+    - master # Branch referenciada.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Make Deploy
+        run: vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN_CONCEITOS_GIT_WSL }} # Token gerado no Vercel.
